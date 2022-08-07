@@ -1,24 +1,15 @@
 const fs = require('fs');
 
-const [h, m, x] = fs.readFileSync('../input.txt').toString().trim().split('\n').map(Number);
+const input = fs.readFileSync("../input.txt").toString().trim().split('\n');
 
-let new_h,new_m, h_x 
+const current = input[0].split(' ').map(Number);
 
-new_m = m + x
+const currentHour = current[0];
+const currentMinute = current[1];
+const cookTime = Number(input[1]);
 
-for (; new_m > 60; new_m - 60) {
-  h_x ++
-}
+const cookEndTimeHour = parseInt((currentHour*60 + currentMinute + cookTime)/ 60) ;
+const cookEndTimeMinute = parseInt((currentHour*60 + currentMinute + cookTime)% 60);
 
-new_h = h + h_x
-
-if (new_h >= 24) {
-  new_h -=24
-}
-
-if (new_h >= 24) {
-  new_h -=24
-}
-
-console.log(new_h, new_m );
+console.log(cookEndTimeHour >= 24 ? cookEndTimeHour - 24 : cookEndTimeHour, cookEndTimeMinute);
 
