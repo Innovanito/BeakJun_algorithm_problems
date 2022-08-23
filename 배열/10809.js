@@ -1,45 +1,31 @@
-// const input=fs.readFileSync('/dev/stdin').toString();
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().trim().split('\n');
+let S = input[0]; //단어: baekjoon
+let S_arr = S.split('');
+let array = ['a','b','c','d','e','f','g','h','i','j','k','l',
+'m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+let answer = '';
+let r_arr = [];
+let count = 0;
 
-const input = require('fs').readFileSync("../input.txt").toString()
-
-let alphabet = {
-  a: -1,
-  b: -1,
-  c: -1,
-  d: -1,
-  e: -1,
-  f: -1,
-  g: -1,
-  h: -1,
-  i: -1,
-  j: -1,
-  k: -1,
-  l: -1,
-  m: -1,
-  n: -1,
-  o: -1,
-  p: -1,
-  q: -1,
-  r: -1,
-  s: -1,
-  t: -1,
-  u: -1,
-  v: -1,
-  w: -1,
-  x: -1,
-  y: -1,
-  z: -1
+for(let i =0; i < array.length; i++) {
+    let count = 0;
+    for(let j=0; j < S_arr.length; j++) {
+        if(array[i] === S_arr[j]) {
+            // if(array[i])
+            r_arr.push(j)
+            break;
+        } else {
+            count++;
+        }
+    }
+    if(count === S_arr.length) {
+        r_arr.push(-1);
+    }
 }
 
-let newObj ={}
-
-
-for (let i = 0; i < input.length; i++) {
-  let char = input[i]
-  let newElement = {
-    ${char}: i+1
-  }
-  Object.assign(newObj, newElement)
+for(let i=0; i < r_arr.length; i++) {
+    answer += r_arr[i] + ' ';
 }
-
-console.log(newObj);
+console.log(answer);
