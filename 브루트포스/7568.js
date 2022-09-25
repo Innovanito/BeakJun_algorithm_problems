@@ -2,22 +2,30 @@ let fs = require('fs');
 // let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 let input = fs.readFileSync('../input.txt').toString().trim().split('\n');
 
-const num = Number(input[0])
+const N = Number(input.shift());
+let person = [];
+let finalArr = [];
 
-let person
-
-
-for (let i = 1; i <= num; i++) {
-  person = input[i].split(' ').map(x => Number(x))
+for (let i = 0; i < N; i++) {
+  let temp = input[i].split(' ');
+  person.push(temp);
 }
 
-let ranking = 1
-let rankingArr = []
+solution();
 
-for (let i = 0; i < person.length; i++ ) {
-  let weight = 10
-  let height = 0
-  if (person[0] >= weight && person[1] >= height) {
-    
+function solution() {
+  for (let i = 0; i < N; i++) {
+    let count = 0;
+
+    for (let j = 0; j < N; j++) {
+      if (person[i][0] < person[j][0]) {
+        if (person[i][1] < person[j][1]) {
+          count++;
+        }
+      }
+    }
+    finalArr.push(String(count + 1));
   }
+  console.log(finalArr.join(' '));
 }
+
