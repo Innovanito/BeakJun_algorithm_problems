@@ -1,45 +1,12 @@
-a,b = input('정수 2개 입력:').split('')
+def call_value(x):
+	print(id(x))
+	x += 1
+	print(id(x))
+	print("in_func_x:",x)
+  return x
 
-['정수', '2개', '입력:']
-print(a,b)
-
-'22\b33'
-
-11,22,33
-
-1999 03 13
-
-['1999\b03\b13']
-
-/
-
-
-bool('')
-
-12345678
-0000ffff
-
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-a
-b
-c
-d
-e
-f
-
-10  진법
-13 = 1* 10^1 + 3* 10^0
-123 = 1 * 10^2 + 2 * 10^1 + 3 * 10^0
-
-16진법
-17(10) = 1 * 16^1 + 1* 16^0
-d
+x = 5
+xNew = 0
+xNew = call_value(x)
+print(id(x))
+print("out_func_x:",xNew)
