@@ -1,5 +1,5 @@
+for i in range(4):
+    print(i)
 
-print("type input")
-b = map(int, input().strip)
-
-print('result:', b)
+for i in range(1, 5):
+    print(i)
