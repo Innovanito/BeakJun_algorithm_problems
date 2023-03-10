@@ -41,4 +41,5 @@ while 1:
         else:
             break
 
+print('map', map)
 print(cnt)

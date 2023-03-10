@@ -1,5 +1,14 @@
-for i in range(4):
-    print(i)
+import heapq
 
-for i in range(1, 5):
-    print(i)
+arr = [[1, 3], [3, 1]]
+
+arr2 = [2, 0]
+
+heapq.heappush(arr, arr2)
+
+print(arr)
+
+
+heapq.heappop(arr)
+heapq.heappop(arr)
+print(arr)
