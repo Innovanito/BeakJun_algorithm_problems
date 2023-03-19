@@ -1,14 +1,5 @@
-import heapq
+from collections import deque
 
-arr = [[1, 3], [3, 1]]
+data = (1, 3)
 
-arr2 = [2, 0]
-
-heapq.heappush(arr, arr2)
-
-print(arr)
-
-
-heapq.heappop(arr)
-heapq.heappop(arr)
-print(arr)
+stack = deque()
