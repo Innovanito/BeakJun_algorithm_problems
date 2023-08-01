@@ -41,49 +41,49 @@
 # n* log(m) = 10^6 * 9 * log(2) ~ 10^7 < 10^8
 
 
-N, M = map(int, input().split())
-Trees = list(map(int, input().split()))
-
-
-st, en = 1, max(Trees)
-
-
-def binSearch(start, end, trees, m):
-    if (start == end):
-        return start
-
-    total = 0
-
-    mid = (start + end) // 2
-
-    for tree in trees:
-        total += tree - mid
-
-    if total >= m:
-        binSearch(mid+1, end, trees, m)
-
-    else:
-        binSearch(start, mid, trees, m)
-
-
-print(binSearch(st, en, Trees, M))
-
-
 # N, M = map(int, input().split())
-# tree = list(map(int, input().split()))
-# start, end = 1, max(tree)  # 이분탐색 검색 범위 설정
+# Trees = list(map(int, input().split()))
 
-# while start <= end:  # 적절한 벌목 높이를 찾는 알고리즘
-#     mid = (start+end) // 2
 
-#     log = 0  # 벌목된 나무 총합
-#     for i in tree:
-#         if i >= mid:
-#             log += i - mid
+# st, en = 1, max(Trees)
 
-#     # 벌목 높이를 이분탐색
-#     if log >= M:
-#         start = mid + 1
+
+# def binSearch(start, end, trees, m):
+#     if (start == end):
+#         return start
+
+#     total = 0
+
+#     mid = (start + end) // 2
+
+#     for tree in trees:
+#         total += tree - mid
+
+#     if total >= m:
+#         binSearch(mid+1, end, trees, m)
+
 #     else:
-#         end = mid - 1
-# print(end)
+#         binSearch(start, mid, trees, m)
+
+
+# print(binSearch(st, en, Trees, M))
+
+
+N, M = map(int, input().split())
+tree = list(map(int, input().split()))
+start, end = 1, max(tree)  # 이분탐색 검색 범위 설정
+
+while start <= end:  # 적절한 벌목 높이를 찾는 알고리즘
+    mid = (start+end) // 2
+
+    log = 0  # 벌목된 나무 총합
+    for i in tree:
+        if i >= mid:
+            log += i - mid
+
+    # 벌목 높이를 이분탐색
+    if log >= M:
+        start = mid + 1
+    else:
+        end = mid - 1
+print(end)
